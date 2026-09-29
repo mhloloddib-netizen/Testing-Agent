@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pulse Chat</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💬</text></svg>"
+    />
+  </head>
+  <body>
+    <!-- Login screen -->
+    <div class="login" id="login">
+      <form class="login-card" id="login-form">
+        <div class="logo">💬</div>
+        <h1>Pulse Chat</h1>
+        <p class="sub">Real-time rooms. No sign-up, no history stored on disk.</p>
+
+        <label for="name">Display name</label>
+        <input id="name" name="name" maxlength="24" placeholder="e.g. Ali" autocomplete="off" required />
+
+        <label for="room">Room</label>
+        <input id="room" name="room" maxlength="24" placeholder="general" autocomplete="off" value="general" />
+
+        <button type="submit">Join chat</button>
+        <span class="hint">Tip: open this page in two tabs to see it live.</span>
+      </form>
+    </div>
+
+    <!-- Chat screen -->
+    <div class="app hidden" id="app">
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-head">
+          <div class="logo-sm">💬</div>
+          <div>
+            <div class="brand">Pulse Chat</div>
+            <div class="room-name">#<span id="room-label">general</span></div>
+          </div>
+        </div>
+
+        <div class="section-title">
+          Online — <span id="user-count">0</span>
+        </div>
+        <ul class="users" id="users"></ul>
+
+        <div class="me" id="me"></div>
+        <button class="leave" id="leave">Leave room</button>
+      </aside>
+
+      <main class="chat">
+        <header class="chat-head">
+          <button class="icon-btn" id="menu-btn" aria-label="Toggle sidebar">☰</button>
+          <div>
+            <h2>#<span id="room-label-2">general</span></h2>
+            <div class="status" id="status"><span class="dot"></span> connecting…</div>
+          </div>
+        </header>
+
+        <div class="messages" id="messages"></div>
+
+        <div class="typing" id="typing"></div>
+
+        <form class="composer" id="composer">
+          <textarea
+            id="input"
+            rows="1"
+            maxlength="2000"
+            placeholder="Write a message…  (Enter to send, Shift+Enter for a new line)"
+          ></textarea>
+          <button type="submit" id="send" aria-label="Send">➤</button>
+        </form>
+      </main>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
