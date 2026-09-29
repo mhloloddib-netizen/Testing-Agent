@@ -29,6 +29,23 @@ npm run dev
 
 Open the page in two browser tabs (or two devices on your network) to see messages sync live.
 
+## Deploy
+
+Deploy as a **Web Service** (not a Static Site) on any Node host. The repo includes a
+[`render.yaml`](./render.yaml) blueprint for [Render](https://render.com):
+
+| Setting       | Value         |
+| ------------- | ------------- |
+| Runtime       | Node          |
+| Build command | `npm install` |
+| Start command | `npm start`   |
+| Health check  | `/api/health` |
+
+The server already reads `process.env.PORT` and binds `0.0.0.0`, and the client auto-upgrades
+to `wss://` on HTTPS — no code changes needed.
+
+📘 বাংলায় ধাপে ধাপে গাইড: **[DEPLOY-RENDER.bn.md](./DEPLOY-RENDER.bn.md)**
+
 ## Project layout
 
 ```

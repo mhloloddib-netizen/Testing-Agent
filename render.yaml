@@ -1,0 +1,20 @@
+# Render Blueprint — https://render.com/docs/blueprint-spec
+# Render ড্যাশবোর্ডে New > Blueprint দিয়ে এই রিপো কানেক্ট করলে
+# নিচের সেটিংস অটোমেটিক অ্যাপ্লাই হবে।
+services:
+  - type: web
+    name: pulse-chat
+    runtime: node
+    plan: free
+    region: singapore # আপনার/ইউজারদের কাছাকাছি: singapore, frankfurt, oregon, ohio, virginia
+    branch: arena/01a0eb5a-testing-agent
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NODE_VERSION
+        value: "22"
+      # PORT Render নিজে সেট করে — এখানে হার্ডকোড করবেন না।
